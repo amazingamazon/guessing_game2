@@ -17,7 +17,7 @@ var Game = function(name){
     } else {
       alert("Too low! Guess a higher number, " + this.name + ".");
     }
-  }
+  };
 };
 
 var game = new Game("Jeff");

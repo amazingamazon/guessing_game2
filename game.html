@@ -1,23 +1,11 @@
-<script>
-
-var guess,
-    answer,
-    message;
-
-guess = parseInt(prompt("How many ingredients are in my french toast recipe? If you get it right, I'll give you the recipe."));
-console.log("The guess is " + guess);
-
-answer = 7;
-console.log("The answer is " + answer);
-
-if (guess === answer) {
-  message = "That's right! Let's have breakfast. The ingredients are: 1 egg, 1 tsp vanilla, 1/2 tsp cinnamon, 1/4 cup milk, 4 slices of bread, butter, syrup. Beat egg, vanilla and cinnamon in a bowl. Pour in milk. Dip bread in mixture and cook on medium heat until brown on both sides. Top with butter and syrup.";
-} else if (guess > answer) {
-  message = "Too high! Guess a lower number.";
-} else {
-  message = "Too low! Guess a higher number.";
-}
-
-alert(message);
-
-</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heidi's Guessing Game</title>
+  </head>
+  <body>
+    <h1>Heidi's French Toast Recipe</h1>
+    <div id="recipe"></div>
+    <script src="scripts.js"></script>
+  </body>
+</html>

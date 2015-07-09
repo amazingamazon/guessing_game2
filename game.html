@@ -4,13 +4,13 @@ var guess,
     answer,
     message;
 
-guess = prompt("How many ingredients are in my french toast recipe?");
+guess = parseInt(prompt("How many ingredients are in my french toast recipe?"));
 console.log("The guess is " + guess);
 
 answer = 7;
 console.log("The answer is " + answer);
 
-if (parseInt(guess) === answer) {
+if (guess === answer) {
   message = "That's right! Let's have breakfast.";
 } else {
   message = "Nope. Too bad. Wrong answer.";

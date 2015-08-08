@@ -1,26 +1,38 @@
-var name,
-    guess,
-    answer,
-    message,
-    recipe;
+var Game = function(name){
+  this.name = name;
+  this.answer = 7;
 
-name = prompt("What's your name?");
+  this.play = function() {
 
-guess = parseInt(prompt("Hi " + name + "! How many ingredients are in my french toast recipe? If you get it right, I'll give you the recipe."));
-console.log("The guess is " + guess);
+    var guess = parseInt(prompt("Hi " + this.name + "! How many ingredients are in my french toast recipe? If you get it right, I'll give you the recipe."));
+    var paragraph = document.getElementsByTagName("p");
+    var createParagraph = document.createElement("p");
 
-answer = 7;
-console.log("The answer is " + answer);
+    if (guess === this.answer) {
+      paragraph[0].innerHTML = "That's right, " + this.name + "! Let's have breakfast!";
+      document.getElementById("recipe").style.display = "block";
 
-if (guess === answer) {
-  alert("That's right! Let's have breakfast, " + name + ".");
-  message = "The ingredients are: 1 egg, 1 tsp vanilla, 1/2 tsp cinnamon, 1/4 cup milk, 4 slices of bread, butter, syrup. "
-  message+= "Beat egg, vanilla and cinnamon in a bowl. Pour in milk. Dip bread in mixture and cook on medium heat until brown on both sides. "
-  message+= "Top with butter and syrup, and enjoy, " + name + ".";
-  recipe = document.getElementById("recipe");
-  recipe.textContent = message;
-} else if (guess > answer) {
-  alert("Too high! Guess a lower number, " + name + ".");
-} else {
-  alert("Too low! Guess a higher number, " + name + ".");
-}
+    } else if (guess > this.answer) {
+      paragraph[0].innerHTML = "Too high! Guess a lower number, " + this.name + ".";
+      paragraph[0].appendChild(createParagraph);
+      paragraph[1].textContent = "You guessed " + guess + ". Better luck next time.";
+      this.play();
+
+    } else if (guess < this.answer) {
+      paragraph[0].innerHTML = "Too low! Guess a higher number, " + this.name + ".";
+      paragraph[0].appendChild(createParagraph);
+      paragraph[1].textContent = "You guessed " + guess + ". Better luck next time.";
+      this.play();
+
+    } else {
+      paragraph[0].innerHTML = "C'mon " + this.name + ", that's not a number!";
+      paragraph[0].appendChild(createParagraph);
+      paragraph[1].textContent = "It's a good thing we're friends."
+      this.play();
+    }
+  };
+};
+
+var game = new Game("Dale");
+
+game.play();
